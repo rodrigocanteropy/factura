@@ -10,6 +10,6 @@ class SifenSigner:
 
     def sign_xml(self, xml_content):
         # Simulación de firma
-        signed_xml = xml_content + b"<!-- Simulación de firma digital -->"
+        signed_xml = xml_content + "<!-- Simulacion de firma digital -->".encode("utf-8")
         _logger.info("XML firmado (simulado)")
         return signed_xml
