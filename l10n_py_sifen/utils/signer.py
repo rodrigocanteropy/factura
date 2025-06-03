@@ -9,7 +9,7 @@ class SifenSigner:
         self.password = password
 
     def sign_xml(self, xml_content):
-        # Simulación de firma
-        signed_xml = xml_content + "<!-- Simulacion de firma digital -->".encode("utf-8")
+        # Firma simulada sin caracteres especiales
+        signed_xml = xml_content + b"<!-- Simulacion firma -->"
         _logger.info("XML firmado (simulado)")
         return signed_xml
