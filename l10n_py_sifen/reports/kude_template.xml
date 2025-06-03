@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_kude_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <h2 style="text-align: center;">KuDE - Comprobante Electrónico</h2>
+                    <p><strong>Factura:</strong> <t t-esc="o.name"/></p>
+                    <p><strong>Total:</strong> <t t-esc="o.amount_total"/> Gs</p>
+                    <p><strong>CDC:</strong> <t t-esc="o.sifen_cdc"/></p>
+                    <p><strong>Estado SIFEN:</strong> <t t-esc="o.sifen_estado"/></p>
+                    <div style="margin-top: 20px;">
+                        <img t-att-src="'/report/barcode/QR/%s' % o.sifen_cdc" width="150"/>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <report
+        id="report_kude"
+        string="KuDE"
+        model="account.move"
+        report_type="qweb-pdf"
+        name="l10n_py_sifen.report_kude_document"
+        file="l10n_py_sifen.report_kude_document"
+        print_report_name="'KuDE - %s' % (object.name)"
+    />
+</odoo>
