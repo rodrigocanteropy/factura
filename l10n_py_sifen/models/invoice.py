@@ -12,7 +12,6 @@ class AccountMove(models.Model):
         ('aceptado', 'Aceptado'),
         ('rechazado', 'Rechazado'),
     ], string="Estado SIFEN", default='pendiente', readonly=True)
-
     sifen_xml_signed = fields.Binary(string="XML Firmado", readonly=True)
     sifen_xml_signed_name = fields.Char(string="Nombre XML", readonly=True)
     sifen_modo_emision = fields.Selection([
@@ -21,12 +20,10 @@ class AccountMove(models.Model):
     ], string="Modo de Emisión", default='normal')
 
     def action_generar_xml(self):
-        # Placeholder para generación de XML
         self.ensure_one()
         self.message_post(body="XML generado (simulado).")
 
     def action_firmar_xml(self):
-        # Placeholder para firma digital
         self.ensure_one()
         self.write({
             'sifen_estado': 'firmado',
@@ -35,7 +32,6 @@ class AccountMove(models.Model):
         self.message_post(body="XML firmado (simulado).")
 
     def action_enviar_sifen(self):
-        # Placeholder para envío al SIFEN
         self.ensure_one()
         self.write({'sifen_estado': 'enviado'})
         self.message_post(body="Enviado al SIFEN (simulado).")
