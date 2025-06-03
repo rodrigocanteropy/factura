@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_sifen" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.sifen</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="SIFEN" string="SIFEN" groups="base.group_system">
+                    <h2>Facturación Electrónica - Paraguay (SIFEN)</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6">
+                            <field name="sifen_ambiente"/>
+                            <field name="sifen_ruc_emisor"/>
+                            <field name="sifen_cert_p12" filename="certificado.p12"/>
+                            <field name="sifen_cert_pass"/>
+                            <field name="sifen_url"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
