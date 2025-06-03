@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_move_form_sifen" model="ir.ui.view">
+        <field name="name">account.move.form.sifen</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Facturación Electrónica Paraguay (SIFEN)" name="sifen_group">
+                    <field name="sifen_cdc" readonly="1"/>
+                    <field name="sifen_estado" readonly="1"/>
+                    <field name="sifen_modo_emision"/>
+                    <field name="sifen_xml_signed" filename="sifen_xml_signed_name"/>
+                    <button name="action_generar_xml" string="Generar XML" type="object" class="oe_highlight"/>
+                    <button name="action_firmar_xml" string="Firmar XML" type="object"/>
+                    <button name="action_enviar_sifen" string="Enviar al SIFEN" type="object"/>
+                    <button name="action_consultar_estado_sifen" string="Consultar estado" type="object"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
